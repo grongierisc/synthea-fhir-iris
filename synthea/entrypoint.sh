@@ -8,6 +8,10 @@ else
 fi
 
 if [ ${FHIR_URL} ]; then
-    cd /uploader
-    ./uploader -path=/synthea/output/fhir -fhir="${FHIR_URL}"
+
+    for file in /synthea/output/fhir/*.json
+    do
+        curl -i -H "Content-Type:application/fhir+json" -X POST --data @$file ${FHIR_URL}
+    done; # file
+    
 fi

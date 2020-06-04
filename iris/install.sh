@@ -16,7 +16,7 @@ irissession $instanceName -U USER <<EOF
 sys
 sys
 zn "HSLIB"
-Set appKey = "/SYNTHEA/fhir/r4"
+Set appKey = "/synthea/fhir/r4"
 Set strategyClass = "HS.FHIRServer.Storage.Json.InteractionsStrategy"
 Set metadataConfigKey = "HL7v40"
 
