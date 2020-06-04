@@ -1,0 +1,26 @@
+version: '3.3'
+services:
+
+  fhir-iris:
+    build:
+      context: iris
+    image: fhir-iris:latest
+    hostname: fhir-iris
+    ports:
+    - "51773:51773" # 51773 is the superserver default port
+    - "52773:52773" # 52773 is the webserver/management portal port
+
+  synthea:
+    build: 
+       context: synthea
+    image: synthea-docker:latest
+    depends_on:
+      - fhir-iris
+    environment:
+      - SYNTHEA_SEED=1
+      - SYNTHEA_SIZE=10
+      - FHIR_URL="http://fhir-iris:52773/synthea/fhir/r4/
+    volumes:
+    - type: bind
+      source: ./synthea/output/fhir
+      target: /synthea/output/fhir
