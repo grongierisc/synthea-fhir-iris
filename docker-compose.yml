@@ -18,7 +18,7 @@ services:
       - fhir-iris
     environment:
       - SYNTHEA_SEED=1
-      - SYNTHEA_SIZE=10
+      - SYNTHEA_SIZE=1000
       - FHIR_URL=http://fhir-iris:52773/synthea/fhir/r4/
     volumes:
     - type: bind

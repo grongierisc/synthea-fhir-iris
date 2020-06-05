@@ -9,9 +9,7 @@ fi
 
 if [ ${FHIR_URL} ]; then
 
-    for file in /synthea/output/fhir/*.json
-    do
-        curl -i -H "Content-Type:application/fhir+json" -X POST --data @$file ${FHIR_URL}
-    done; # file
-    
+    cd /synthea/output/fhir 
+    make -j8
+
 fi
