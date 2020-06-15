@@ -1,6 +1,5 @@
 FROM java:8-jdk-alpine
 
-COPY entrypoint.sh /
 COPY synthea.properties /
 
 ENV SYNTHEA_SEED=
@@ -13,7 +12,10 @@ RUN apk update \
     && mv synthea.properties /synthea/src/main/resources/synthea.properties \
     && cd synthea \
     && ./gradlew build -x test \
-    && cd / \
-    && chmod +x /entrypoint.sh
+    && cd / 
+
+COPY entrypoint.sh /
+COPY output/fhir/makefile /synthea/output/fhir/makefile
+RUN chmod +x /entrypoint.sh
 
 CMD ["/entrypoint.sh"]

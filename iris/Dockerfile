@@ -4,6 +4,7 @@ FROM $IMAGE
 LABEL maintainer="Guillaume Rongier <guillaume.rongier@intersystems.com>"
 
 COPY install.sh install.sh
+COPY src src
 
 RUN iris start $ISC_PACKAGE_INSTANCENAME EmergencyId=sys,sys && \
  sh install.sh $ISC_PACKAGE_INSTANCENAME && \

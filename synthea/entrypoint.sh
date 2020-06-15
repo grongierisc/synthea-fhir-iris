@@ -9,7 +9,12 @@ fi
 
 if [ ${FHIR_URL} ]; then
 
+    start=`date +%s`
     cd /synthea/output/fhir 
     make -j8
+    end=`date +%s`
+
+    runtime=$((end-start))
+    echo "temps de traitement en secondes "$runtime
 
 fi

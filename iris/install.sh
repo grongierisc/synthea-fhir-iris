@@ -17,15 +17,14 @@ sys
 sys
 zn "HSLIB"
 Set appKey = "/synthea/fhir/r4"
-Set strategyClass = "HS.FHIRServer.Storage.Json.InteractionsStrategy"
+Set strategyClass = "SYNTHEA.InteractionsStrategy"
 Set metadataConfigKey = "HL7v40"
 
 //Install a Foundation namespace and change to it
 Do ##class(HS.HC.Util.Installer).InstallFoundation("$NameSpace")
 zn "$NameSpace" 
 
-// Install elements that are required for a FHIR-enabled namespace
-Do ##class(HS.FHIRServer.Installer).InstallNamespace()
+do \$system.OBJ.ImportDir("$ClassImportDir","*.cls","cdk",.errors,1)
 
 // Install an instance of a FHIR Service into the current namespace
 Do ##class(HS.FHIRServer.Installer).InstallInstance(appKey, strategyClass, metadataConfigKey)

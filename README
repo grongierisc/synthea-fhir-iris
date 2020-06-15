@@ -1,0 +1,3 @@
+set obj = ##class(HSFHIR.I0001.R.Observation).%OpenId(1)
+set dyna = {}.%FromJSON(obj.ResourceString)
+set pers = ##class(SYNTHEA.ObservationPersist).FromJSONHelper(dyna,"vR4")
