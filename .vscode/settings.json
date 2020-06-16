@@ -2,5 +2,6 @@
     "objectscript.conn.ns": "SYNTHEA",
     "objectscript.conn.active": true,
     "objectscript.serverSideEditing": true,
-    "objectscript.compileFlags": "cubk"
+    "objectscript.compileFlags": "cubk",
+    "objectscript.export.category": "CLS"
 }

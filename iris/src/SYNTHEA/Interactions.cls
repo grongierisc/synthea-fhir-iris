@@ -209,8 +209,9 @@ Method Add(pResourceObj As %DynamicObject, pResourceIdToAssign As %String = "", 
 ClassMethod AddToSql(pResourceObj As HS.FHIRServer.Storage.Json.Resource) As %Status
 {
 	set version = "vR4"
-	set basePkg = "HS.FHIR."_version_".Model.Resource"
+	set basePkg = "HS.FHIR.Storage."_version_".Model.Resource"
 	set ^TEST = $Increment(^TEST,1)
+
 	set ^TEST(^TEST) = basePkg
 	set class = basePkg_"."_pResourceObj.resourceType
 	set ^TEST(^TEST) = class

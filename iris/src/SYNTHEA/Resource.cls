@@ -57,6 +57,6 @@ Method ResourceObjectGet() As %DynamicObject
 	return ..%CachedResourceObject
 }
 
-Property Compartments As List Of %String;
+Property Compartments As list Of %String;
 
 }
